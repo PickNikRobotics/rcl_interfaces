@@ -13,6 +13,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 # ament_export_dependencies(rcl_interfaces)
@@ -34,6 +35,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ListParameters.srv"
   "srv/SetParametersAtomically.srv"
   "srv/SetParameters.srv"
+  DEPENDENCIES builtin_interfaces
 )
 
 # this must happen before the invocation of ament_package()
